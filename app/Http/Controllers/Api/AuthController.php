@@ -37,8 +37,7 @@ class AuthController extends Controller
             $user->email = $request->email;
             $user->username = $request->username;
             $user->date_naissance = $request->date_naissance;
-            $user->password = Hash::make($request->password, 
-            // [ 'rounds' =>12 ]
+            $user->password = Hash::make($request->password
              );
             //  dd('MERCI');
             $user->save();
@@ -73,5 +72,6 @@ public function login(LoginRequest $request)
         'token_type' => 'Bearer',
         'expires_in' => auth()->factory()->getTTL() * 120
     ]);
+    
 }
 }

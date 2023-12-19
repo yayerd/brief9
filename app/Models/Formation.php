@@ -18,5 +18,7 @@ class Formation extends Model
         'titre',
         'criteres',
         'duree',
+        'etat',
+        'archive',
     ];
 }

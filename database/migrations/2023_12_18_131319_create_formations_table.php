@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('titre');
             $table->text('criteres');
             $table->integer('duree');
+            $table->enum('etat', ['ouverte', 'cloturee'])->default('ouverte');
+            $table->boolean('archive')->default(false);
             $table->timestamps();
         });
     }

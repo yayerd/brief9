@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController as ApiAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\FormationController;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 
 /*
@@ -22,7 +23,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware'=>'api', 'prefix'=>'auth'], function ($router){
-    // public routes
-    Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
 });
+
+// -------------------------------------Route de Admin Simplon  ------------------------------------------------------
+
+// Route::middleware(['auth:api', 'role:AdminSimplon'])->group(function () {
+    Route::get('/formations/list',[FormationController::class,'index']);
+    Route::post('/formation/store',[FormationController::class,'store']);
+    Route::get('/formation/show/{id}',[FormationController::class,'show']);
+    Route::put('/formation/{formation}/update',[FormationController::class,'update']);
+    Route::put('/formation/{formation}/etat',[FormationController::class,'changeEtatFormation']);
+    Route::put('/formation/{id}/archive',[FormationController::class,'archiveFormation']);
+    Route::post('/formation/{formation}/delete',[FormationController::class,'destroy']);
+// });
+
+// -------------------------------------Route Public ------------------------------------------------------
+
+Route::post('/register', [AuthController::class, 'register']);
