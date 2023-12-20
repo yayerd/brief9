@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('candidatures', function (Blueprint $table) {
             $table->id();
-            $table->enum('statut',['en attente', 'acceptee', 'refusee']);
+            $table->enum('statut',['en attente', 'acceptee', 'refusee'])->default('en attente');
             $table->foreignIdFor(User::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignIdFor(Formation::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();

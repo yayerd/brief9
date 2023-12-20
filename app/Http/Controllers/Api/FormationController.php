@@ -17,7 +17,13 @@ class FormationController extends Controller
      */
     public function index()
     {
-        return Formation::all();
+       $formation = Formation::all();
+       
+        return response()->json([
+            'statut_message' => 'Voici la liste de toutes les formations.',
+            'statut_code' => 200,
+            'statut_code' => $formation,
+        ]);
     }
 
     /**
