@@ -1,0 +1,616 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api Simplon (Candidat et Admin)",
+        "description": "Cette api permet de gérer l'étape sourcing des formations de Simplon Senegal",
+        "version": "1.0"
+    },
+    "components": {
+        "securitySchemes": {
+        "bearerAuth": {
+        "type": "http","scheme": "bearer",
+        "bearerFormat": "JWT"
+        }
+        }
+        },
+        "security": [
+        {
+        "bearerAuth": []
+        }
+        ],
+    "consumes": [
+        "application/json"
+    ],
+    "paths": {
+        "/api/formation/store": {
+            "post": {
+                "summary": "1- Créer formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "titre": "string",
+                                    "criteres": "string",
+                                    "duree": "string",
+                                    "etat": "string",
+                                    "archive": "boolean"
+                                }
+                            },
+                            "example": {
+                                "titre": "FORMATION ",
+                                "criteres": "aucune",
+                                "duree": "10",
+                                "etat": "ouverte",
+                                "archive": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/formations/list": {
+            "get": {
+                "summary": "2- Lister formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/formation/show/2": {
+            "get": {
+                "summary": "3- Show formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/formation/3/update": {
+            "put": {
+                "summary": "4- Update formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "titre": "string",
+                                    "criteres": "string",
+                                    "duree": "integer",
+                                    "etat": "string",
+                                    "archive": "integer"
+                                }
+                            },
+                            "example": {
+                                "titre": "DEVe MOBILE",
+                                "criteres": "connaissance dev web",
+                                "duree": 6,
+                                "etat": "ouverte",
+                                "archive": 0
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/formation/4/etat": {
+            "put": {
+                "summary": "5- ChangeEtat formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "etat": "string"
+                                }
+                            },
+                            "example": {
+                                "etat": "cloturee"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/formation/3/archive": {
+            "put": {
+                "summary": "6- Archive formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "archive": "integer"
+                                }
+                            },
+                            "example": {
+                                "archive": 1
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/formation/5/delete": {
+            "post": {
+                "summary": "7- Delete formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Formation"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/candidature/store/6": {
+            "post": {
+                "summary": "1- Candidater",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/candidatures/list": {
+            "get": {
+                "summary": "2- Lister toutes les candidatures",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/candidature/1": {
+            "get": {
+                "summary": "3- Lister candidature pour une formation",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/candidature/1/accept": {
+            "put": {
+                "summary": "4- Accepter Candidature",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "statut": "string"
+                                }
+                            },
+                            "example": {
+                                "statut": "acceptee"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidatures/list/accept": {
+            "get": {
+                "summary": "4'- Lister candidature acceptées",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/candidature/2/refuse": {
+            "put": {
+                "summary": "5- Refuser Candidature",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "statut": "string"
+                                }
+                            },
+                            "example": {
+                                "statut": "refusee"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/candidatures/list/refuse": {
+            "get": {
+                "summary": "5'- Lister candidature refusées",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/candidatures/list/attente": {
+            "get": {
+                "summary": "6- Lister candidature en attente",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Candidature"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/register": {
+            "post": {
+                "summary": "Register User",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Authenticate User"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "prenom": "string",
+                                    "nom": "string",
+                                    "username": "string",
+                                    "email": "string",
+                                    "date_naissance": "string",
+                                    "password": "string"
+                                }
+                            },
+                            "example": {
+                                "prenom": "Oumy",
+                                "nom": "Diop",
+                                "username": "oumy9",
+                                "email": "oumy@gmail.com",
+                                "date_naissance": "1999-12-18",
+                                "password": "oumy789#"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "summary": "Login AdminSimplon",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "examples": {
+                            "application/json": ""
+                        }
+                    }
+                },
+                "tags": [
+                    "Authenticate User"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": "string",
+                                    "password": "string"
+                                }
+                            },
+                            "example": {
+                                "username": "pape7",
+                                "password": "pape789#"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
