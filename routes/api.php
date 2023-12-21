@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\CandidatureController as ApiCandidatureController;
 use App\Http\Controllers\Api\FormationController;
 use App\Http\Controllers\Api\CandidatureController;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -32,7 +31,7 @@ Route::post('/register', [AuthController::class, 'register']); // Inscription : 
 // -------------------------------------Route Authentification  ------------------------------------------------------
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
-    Route::post('/login', [AuthController::class, 'login']); // Tous les users peuvent se connecter 
+    Route::post('/login', [AuthController::class, 'login']); // Tous les users étant inscrits peuvent se connecter 
 });
 
 // -------------------------------------Route de L'Admin Simplon  ------------------------------------------------------
