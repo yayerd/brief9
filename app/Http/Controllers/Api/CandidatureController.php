@@ -24,7 +24,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_message' => 'Voici la liste des pour toutes les candidatures.',
                 'statut_code' => 200,
-                'statut_code' => $candidatures,
+                'data' => $candidatures,
             ]);
         }
     }
@@ -44,7 +44,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_message' => 'Voici la liste des pour toutes les formations.',
                 'statut_code' => 200,
-                'statut_code' => $candidatures,
+                'data' => $candidatures,
             ]);
         }
     }
@@ -63,7 +63,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_message' => 'Voici la liste des pour toutes les candidatures acceptées.',
                 'statut_code' => 200,
-                'statut_code' => $candidatures,
+                'data' => $candidatures,
             ]);
         }   elseif (auth()->check()) {
             return response()->json([
@@ -92,7 +92,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_message' => 'Voici la liste des pour toutes les candidatures refusées.',
                 'statut_code' => 200,
-                'statut_code' => $candidatures,
+                'data' => $candidatures,
             ]);
         }   elseif (auth()->check()) {
             return response()->json([
@@ -121,7 +121,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_message' => 'Voici la liste des pour toutes les candidatures en attente.',
                 'statut_code' => 200,
-                'statut_code' => $candidatures,
+                'data' => $candidatures,
             ]);
         }   elseif (auth()->check()) {
             return response()->json([
@@ -149,7 +149,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'La candidature a été acceptée.',
-                'statut_code' => $candidature,
+                'data' => $candidature,
             ]);
         } catch (\Exception $e) {
             throw new \Exception($e);
@@ -166,7 +166,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'La candidature a été refusée.',
-                'statut_code' => $candidature,
+                'data' => $candidature,
             ]);
         } catch (\Exception $e) {
             throw new \Exception($e);
@@ -188,7 +188,7 @@ class CandidatureController extends Controller
     //     return response()->json([
     //         'statut_code' => 200,
     //         'statut_message' => 'Candidature enregistrée avec succès',
-    //         'statut_code' => $candidature,
+    //         'data' => $candidature,
     //     ]);
     // }
 
@@ -233,7 +233,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'Candidature acceptée.',
-                'statut_code' => $candidature,
+                'data' => $candidature,
             ]);
         } catch (Exception $e) {
             throw new \Exception($e);
@@ -250,7 +250,7 @@ class CandidatureController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'Candidature refusée.',
-                'statut_code' => $candidature,
+                'data' => $candidature,
             ]);
         } catch (Exception $e) {
             throw new \Exception($e);

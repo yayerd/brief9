@@ -22,7 +22,7 @@ class FormationController extends Controller
         return response()->json([
             'statut_message' => 'Voici la liste de toutes les formations.',
             'statut_code' => 200,
-            'statut_code' => $formation,
+            'data' => $formation,
         ]);
     }
 
@@ -56,7 +56,7 @@ class FormationController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'Nouvelle formation ajoutée avec succès',
-                'statut_code' => $formation,
+                'data' =>  $formation,
             ]);
         } catch (Exception $e) {
 
@@ -103,7 +103,7 @@ class FormationController extends Controller
                     return response()->json([
                         'statut_code' => 200,
                         'statut_message' => 'La formation a été modifiée avec succès',
-                        'statut_code' => $formation,
+                        'data' => $formation,
                     ]);
                 } else {
                     return response()->json([
@@ -136,7 +136,7 @@ class FormationController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'La formation est clôturée avec succès',
-                'statut_code' => $formation,
+                'data' => $formation,
             ]);
         } catch (Exception $e) {
             throw new \Exception($e);
@@ -157,7 +157,7 @@ class FormationController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'La formation a été archivée avec succès.',
-                'statut_code' => $formation,
+                'data' => $formation,
             ]);
         } catch (\Exception $e) {
             throw new \Exception($e);
@@ -178,7 +178,7 @@ class FormationController extends Controller
             return response()->json([
                 'statut_code' => 200,
                 'statut_message' => 'La formation a été supprimée avec succès.',
-                'statut_code' => $formation,
+                'data' => $formation,
             ]);
         } catch (\Exception $e) {
             throw new \Exception($e);
