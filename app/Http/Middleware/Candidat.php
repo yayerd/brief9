@@ -19,7 +19,7 @@ class Candidat
         if(auth()->check() && auth()->user()->role_id === 2){
 
             return $next($request);
-        }else {
+        } else {
             return response()->json([
                 'status_code' => 401,
                 'status_message' => 'Vous n\'avez pas les droits.',
