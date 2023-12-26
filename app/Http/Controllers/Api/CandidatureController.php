@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Candidature;
 use App\Models\Formation;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,43 @@ class CandidatureController extends Controller
                 'statut_code' => 200,
                 'data' => $candidatures,
             ]);
+        } else {
+            return response()->json([
+                'status_message' => 'Vous n\'avez pas les droits pour consulter la liste des candidatures.',
+                'status_code' => 403, 
+            ], 403);
         }
     }
+
+
+public function listeCandidats(Candidature $candidats, )
+{
+    if (auth()->check() && auth()->user()->role_id == 1) {
+        // $candidats = Candidature::where('user_id', $candidats->id)->get();
+        // $candidats = Candidature::all();
+        $candidats = Candidature::where("user_id", 1)->exists();
+        dd($candidats);
+
+        $data = $candidats->map(function ($candidats) {
+            return [
+                'user_id' => $candidats->user->id,
+                'user_name' => $candidats->user->name,
+                'candidature_id' => $candidats->id,
+            ];
+        });
+
+        return response()->json([
+            'status_message' => 'Voici la liste de tous les candidats.',
+            'status_code' => 200,
+            'data' => $data,
+        ]);
+    } else {
+        return response()->json([
+            'status_message' => 'Accès non autorisé.',
+            'status_code' => 403,
+        ], 403);
+    }
+}
 
 
     public function indexOne(Formation $formation, Candidature $candidatures)

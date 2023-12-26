@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class VerfyFormationFeaturesTest extends TestCase
+class VerfyCandidatureFeaturesTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -17,17 +17,13 @@ class VerfyFormationFeaturesTest extends TestCase
 
         $response->assertStatus(200);
     }
-    /**
-     * A test for add formation feature test example.
-     */
-    public function testListeFormations(): void
+
+    public function testListeCanditatures(): void
     {
         $this->artisan('migrate');
         $this->withoutMiddleware();
-        $response = $this->get('/api/formations/list');
+        $response = $this->get('/api/candidatures/list');
 
         $response->assertStatus(200);
     }
-
-   
 }

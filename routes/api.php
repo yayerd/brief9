@@ -40,7 +40,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 Route::middleware(['auth:api', 'roleAdminSimplon'])->group(function () {
 
     // -----------------Route pour les Formations  ------------------------------------------------------
-
+    
     Route::get('/formations/list', [FormationController::class, 'index']); // Affiche toutes les formations 
     Route::post('/formation/store', [FormationController::class, 'store']); // Enregistre une nouvelle formation
     Route::get('/formation/show/{id}', [FormationController::class, 'show']); // Affiche une formation
@@ -50,8 +50,9 @@ Route::middleware(['auth:api', 'roleAdminSimplon'])->group(function () {
     Route::post('/formation/{formation}/delete', [FormationController::class, 'destroy']); // Supprime une formation 
     
     // ----------------Route pour les Candidatures  ------------------------------------------------------
-   
+    
     Route::get('/candidatures/list', [CandidatureController::class, 'index']);  // Enregistre une nouvelle candidature
+    Route::get('/candidats/list', [CandidatureController::class, 'listeCandidats']); // Affiche les candidatures acceptées 
     Route::get('/candidature/{formation}', [CandidatureController::class, 'indexOne']); // Affiche les candidature d'une formation 
     Route::get('/candidatures/list/accept', [CandidatureController::class, 'indexAccept']); // Affiche les candidatures acceptées 
     Route::get('/candidatures/list/refuse', [CandidatureController::class, 'indexRefuse']); // Affiche les candidatures refusées

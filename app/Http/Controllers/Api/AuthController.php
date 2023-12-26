@@ -40,7 +40,7 @@ class AuthController extends Controller
             $user->username = $request->username;
             $user->date_naissance = $request->date_naissance;
             $user->password = Hash::make(
-                $request->password
+                    $request->password
             );
             //  dd('MERCI');
             $user->save();
